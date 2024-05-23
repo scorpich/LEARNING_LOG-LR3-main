@@ -1,0 +1,10 @@
+{% extends "learning_logs/base.html" %}
+{% block content %}
+    <p><a href="{% url 'learning_logs:rules' %}">{{ rules }}</a></p>
+    <p>Добавити нове правило:</p>
+    <form action="{% url 'learning_logs:new_rule' %}" method='post'>
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button name='submit'>Добавити правило</button>
+    </form>
+{% endblock content %}
